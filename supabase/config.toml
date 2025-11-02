@@ -1,1 +1,13 @@
 project_id = "xpiyjvphnabdsfrrelbc"
+
+[functions.get-flight-status]
+verify_jwt = false
+
+[functions.subscribe-newsletter]
+verify_jwt = false
+
+[functions.create-parking-reservation]
+verify_jwt = false
+
+[functions.get-news]
+verify_jwt = false
