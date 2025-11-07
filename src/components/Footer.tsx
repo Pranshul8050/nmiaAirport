@@ -51,23 +51,31 @@ const Footer = () => {
   return (
     <footer className="bg-dark-navy text-white">
       {/* Newsletter Section */}
-      <div className="bg-dark-navy py-12">
+      <div className="bg-dark-navy py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-light text-center mb-4 tracking-wide">
+          <h2 className="text-4xl font-light text-center mb-4 tracking-wider">
             Subscribe for Updates!
           </h2>
-          <p className="text-center text-white/80 mb-8">
+          <p className="text-center text-white/90 mb-10 text-lg">
             Get our latest flight destination information, shopping/dining and parking promotions sent directly to your inbox!
           </p>
-          <div className="max-w-md mx-auto flex gap-4">
+          <form onSubmit={handleNewsletterSubmit} className="max-w-md mx-auto flex gap-4">
             <Input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="EMAIL ADDRESS..."
-              className="bg-transparent border-2 border-white text-white placeholder:text-white/50"
+              className="bg-transparent border-2 border-white text-white placeholder:text-white/50 h-14"
+              disabled={loading}
             />
-            <Button className="bg-primary hover:bg-primary/90 px-8">
-              JOIN US
+            <Button 
+              type="submit"
+              className="bg-primary hover:bg-primary/90 px-10 h-14 text-base font-semibold"
+              disabled={loading}
+            >
+              {loading ? <Loader2 className="h-5 w-5 animate-spin" /> : "JOIN US"}
             </Button>
-          </div>
+          </form>
           
           {/* Social Icons */}
           <div className="flex justify-center gap-6 mt-8">

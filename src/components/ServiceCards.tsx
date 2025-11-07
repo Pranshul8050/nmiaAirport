@@ -42,18 +42,20 @@ const services = [
 
 const ServiceCards = () => {
   return (
-    <div className="bg-background py-16">
+    <div className="bg-white py-20">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <Card
               key={index}
-              className="p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer group border-2"
+              className="p-10 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 cursor-pointer group border-0 shadow-md bg-white"
             >
               <div className="flex flex-col items-center text-center">
-                <service.icon className={`h-16 w-16 ${service.color} mb-4 group-hover:scale-110 transition-transform`} />
-                <h3 className="text-lg font-bold text-navy mb-2">{service.title}</h3>
-                <p className="text-sm text-muted-foreground">{service.description}</p>
+                <div className="p-4 rounded-full bg-primary/10 mb-6 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
+                  <service.icon className={`h-14 w-14 ${service.color} group-hover:text-white transition-colors`} />
+                </div>
+                <h3 className="text-base font-bold text-foreground mb-3 tracking-wide">{service.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{service.description}</p>
               </div>
             </Card>
           ))}

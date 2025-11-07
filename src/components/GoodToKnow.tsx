@@ -29,16 +29,16 @@ const items = [
 
 const GoodToKnow = () => {
   return (
-    <div className="bg-background py-16">
+    <div className="bg-white py-20">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-light text-navy mb-12 tracking-widest">GOOD TO KNOW</h2>
+        <h2 className="text-4xl md:text-5xl font-light text-foreground mb-16 tracking-wider">GOOD TO KNOW</h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {items.map((item, index) => (
-            <div key={index} className="border-l-4 border-accent pl-4 hover:pl-6 transition-all">
-              <item.icon className="h-8 w-8 text-primary mb-3" />
-              <h3 className="text-lg font-semibold text-primary mb-2">{item.title}</h3>
-              <p className="text-sm text-muted-foreground mb-2">{item.description}</p>
+            <div key={index} className="border-l-4 border-accent pl-6 hover:pl-8 transition-all group cursor-pointer">
+              <item.icon className="h-10 w-10 text-primary mb-4 group-hover:scale-110 transition-transform" />
+              <h3 className="text-base font-bold text-primary mb-3 group-hover:text-accent transition-colors">{item.title}</h3>
+              <p className="text-sm text-muted-foreground mb-2 leading-relaxed">{item.description}</p>
             </div>
           ))}
         </div>

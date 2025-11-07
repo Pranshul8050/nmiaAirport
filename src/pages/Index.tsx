@@ -4,6 +4,8 @@ import QuickActions from "@/components/QuickActions";
 import ServiceCards from "@/components/ServiceCards";
 import EnhanceExperience from "@/components/EnhanceExperience";
 import NewsSection from "@/components/NewsSection";
+import ShopDine from "@/components/ShopDine";
+import RewardsSection from "@/components/RewardsSection";
 import GoodToKnow from "@/components/GoodToKnow";
 import Footer from "@/components/Footer";
 
@@ -13,9 +15,11 @@ const Index = () => {
       <Navbar />
       <HeroCarousel />
       <QuickActions />
+      <RewardsSection />
+      <NewsSection />
+      <ShopDine />
       <ServiceCards />
       <EnhanceExperience />
-      <NewsSection />
       <GoodToKnow />
       <Footer />
     </div>
