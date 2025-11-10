@@ -2,27 +2,27 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import heroAirport1 from "@/assets/hero-airport-1.jpg";
-import heroAirport2 from "@/assets/hero-airport-2.jpg";
-import heroMumbai3 from "@/assets/hero-mumbai-3.jpg";
+import heroAirport2 from "@/assets/hero-airport-2.png";
+import heroMumbai3 from "@/assets/hero-mumbai-3.png";
 
 const slides = [
   {
     image: heroAirport1,
-    title: "WELCOME TO MUMBAI INTERNATIONAL AIRPORT",
-    subtitle: "Connecting The World To India's Financial Capital",
-    cta: "EXPLORE SERVICES",
+    title: "Welcome to Mumbai International Airport",
+    subtitle: "Connecting travellers to Mumbai with modern facilities and friendly service.",
+    cta: "Explore services",
   },
   {
     image: heroAirport2,
-    title: "FLY NONSTOP TO YOUR DREAM DESTINATION",
-    subtitle: "Experience World-Class Aviation Excellence",
-    cta: "BOOK NOW",
+    title: "Fly to your next destination",
+    subtitle: "Search, compare and book flights from leading carriers.",
+    cta: "Book flights",
   },
   {
     image: heroMumbai3,
-    title: "YOUR JOURNEY BEGINS HERE",
-    subtitle: "Modern Facilities & Exceptional Hospitality Await",
-    cta: "LEARN MORE",
+    title: "Your journey begins here",
+    subtitle: "Enjoy seamless connections and passenger-first services.",
+    cta: "Learn more",
   },
 ];
 
@@ -40,7 +40,7 @@ const HeroCarousel = () => {
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
 
   return (
-    <div className="relative h-[700px] overflow-hidden bg-navy">
+    <div className="relative h-[90vh] overflow-hidden bg-navy">
       {slides.map((slide, index) => (
         <div
           key={index}
@@ -53,20 +53,21 @@ const HeroCarousel = () => {
             alt={slide.title}
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60" />
+          <div className="absolute inset-0" style={{background: 'linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4))'}} />
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
-            <h2 className="text-5xl md:text-7xl font-light text-white mb-6 tracking-widest animate-fade-in drop-shadow-2xl">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white mb-4 tracking-wide drop-shadow-lg" style={{letterSpacing: '0.5px'}}>
               {slide.title}
             </h2>
-            <p className="text-xl md:text-2xl text-white/90 mb-10 max-w-3xl animate-slide-up drop-shadow-lg">
+            <p className="text-base md:text-lg text-white/90 mb-6 max-w-3xl">
               {slide.subtitle}
             </p>
-            <Button
-              size="lg"
-              className="bg-white text-navy hover:bg-white/90 hover:scale-105 transition-all duration-300 px-12 py-6 text-lg font-semibold tracking-wider shadow-2xl animate-slide-up"
+            <button
+              className="border border-white text-white bg-transparent px-6 py-3 rounded transition-all duration-300"
+              onMouseEnter={(e) => { (e.target as HTMLButtonElement).style.background = '#ffffff'; (e.target as HTMLButtonElement).style.color = '#003f8a'; }}
+              onMouseLeave={(e) => { (e.target as HTMLButtonElement).style.background = 'transparent'; (e.target as HTMLButtonElement).style.color = '#ffffff'; }}
             >
               {slide.cta}
-            </Button>
+            </button>
           </div>
         </div>
       ))}
@@ -96,6 +97,15 @@ const HeroCarousel = () => {
             }`}
           />
         ))}
+      </div>
+
+      {/* Overlay boxes at bottom of banner */}
+      <div className="absolute left-0 right-0 bottom-0">
+        <div className="bg-black/60 text-white flex justify-around items-center py-4 text-lg">
+          <div className="px-6">Flight Status</div>
+          <div className="px-6">Reserve Parking</div>
+          <div className="px-6">Parking Availability</div>
+        </div>
       </div>
     </div>
   );

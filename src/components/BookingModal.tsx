@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
@@ -179,7 +180,7 @@ export const BookingModal = ({ open, onOpenChange, type, image }: BookingModalPr
       case 'car':
         return (
           <>
-            {image && <img src={image} alt="Car" className="w-full h-48 object-cover rounded-lg mb-6" />}
+            {image && <img src={image} alt="Cab" className="w-full h-48 object-cover rounded-lg mb-6" />}
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <Label>Full Name</Label>
@@ -194,15 +195,15 @@ export const BookingModal = ({ open, onOpenChange, type, image }: BookingModalPr
                 <Input value={formData.phone || ''} onChange={(e) => setFormData({...formData, phone: e.target.value})} required />
               </div>
               <div>
-                <Label>Car Type</Label>
+                <Label>Cab Type</Label>
                 <Select value={formData.carType} onValueChange={(value) => setFormData({...formData, carType: value})}>
                   <SelectTrigger>
-                    <SelectValue placeholder="Select car" />
+                    <SelectValue placeholder="Select cab type" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="economy">Economy</SelectItem>
-                    <SelectItem value="compact">Compact</SelectItem>
+                    <SelectItem value="sedan">Sedan</SelectItem>
                     <SelectItem value="suv">SUV</SelectItem>
+                    <SelectItem value="premium">Premium Sedan</SelectItem>
                     <SelectItem value="luxury">Luxury</SelectItem>
                   </SelectContent>
                 </Select>
@@ -370,10 +371,10 @@ export const BookingModal = ({ open, onOpenChange, type, image }: BookingModalPr
 
   const getTitle = () => {
     switch (type) {
-      case 'hotel': return 'Book Hotel';
-      case 'car': return 'Rent a Car';
-      case 'flight': return 'Book Flight';
-      case 'package': return 'Book Package';
+      case 'hotel': return 'Reserve a Room';
+      case 'car': return 'Book a Cab';
+      case 'flight': return 'Book a Flight';
+      case 'package': return 'Book a Package';
       case 'event': return 'Book Event Tickets';
       case 'parking': return 'Reserve Parking';
     }
@@ -392,7 +393,7 @@ export const BookingModal = ({ open, onOpenChange, type, image }: BookingModalPr
             className="w-full bg-primary hover:bg-primary/90 h-12 text-base font-semibold"
             disabled={loading}
           >
-            {loading ? <Loader2 className="h-5 w-5 animate-spin" /> : 'COMPLETE BOOKING'}
+            {loading ? <Loader2 className="h-5 w-5 animate-spin" /> : 'Confirm Reservation'}
           </Button>
         </form>
       </DialogContent>

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -8,6 +9,7 @@ import { useToast } from "@/hooks/use-toast";
 const Footer = () => {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showCookie, setShowCookie] = useState(true);
   const { toast } = useToast();
 
   const handleNewsletterSubmit = async (e: React.FormEvent) => {
@@ -117,6 +119,18 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      {showCookie && (
+        <div className="fixed bottom-0 left-0 right-0 bg-[#002f5f] text-white text-sm z-50">
+          <div className="container mx-auto px-4 py-3 flex items-center justify-between">
+            <div>
+              Airport Authority utilizes cookies saved on your devices to ensure we give you the best experience and to see how people use the website. Read more about our <a href="#" className="underline">Privacy policy</a>.
+            </div>
+            <div>
+              <button className="border border-white px-3 py-1 rounded mr-3 bg-transparent text-white" onClick={() => setShowCookie(false)}>OK</button>
+            </div>
+          </div>
+        </div>
+      )}
     </footer>
   );
 };

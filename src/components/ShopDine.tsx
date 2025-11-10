@@ -6,42 +6,75 @@ import shopDine5 from "@/assets/shop-dine-5.jpg";
 
 const ShopDine = () => {
   const images = [
-    { src: shopDine1, alt: "Airport Cafe" },
-    { src: shopDine2, alt: "Restaurant Dining" },
-    { src: shopDine3, alt: "Shopping Area" },
-    { src: shopDine4, alt: "Coffee Shop" },
-    { src: shopDine5, alt: "Airport Lounge" },
+    { src: shopDine1, alt: "Cafe Glory" },
+    { src: shopDine2, alt: "Bracket Room" },
+    { src: shopDine3, alt: "Restaurant Dining" },
+    { src: shopDine4, alt: "Airport Shopping" },
+    { src: shopDine5, alt: "Capitol Grounds Coffee" },
   ];
 
   return (
-    <section className="bg-background py-20">
+    <section className="bg-white py-16">
       <div className="container mx-auto px-4">
-        <h2 className="text-5xl md:text-6xl font-light text-center text-foreground mb-6 tracking-widest">
-          SHOP & DINE
-        </h2>
-        <p className="text-center text-muted-foreground mb-16 text-xl">
-          Looking for Something Local?
-        </p>
+        <div className="text-center mb-8">
+          <h2 className="text-4xl md:text-5xl font-light text-slate-700 tracking-wide mb-3">
+            SHOP & DINE
+          </h2>
+          <p className="text-lg text-slate-600">
+            Looking for Something Local?
+          </p>
+        </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {images.map((image, index) => (
-            <div
-              key={index}
-              className="group relative overflow-hidden rounded-lg shadow-xl hover:shadow-2xl transition-all duration-500 animate-fade-in cursor-pointer"
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
-              <div className="aspect-[4/3] overflow-hidden">
-                <img
-                  src={image.src}
-                  alt={image.alt}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                />
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center pb-8">
-                <span className="text-white text-xl font-semibold tracking-wider">{image.alt}</span>
-              </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-6xl mx-auto">
+          <div className="col-span-1 row-span-2">
+            <div className="relative overflow-hidden rounded-lg h-full min-h-[400px]">
+              <img
+                src={images[0].src}
+                alt={images[0].alt}
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+              />
             </div>
-          ))}
+          </div>
+
+          <div className="col-span-1 row-span-2">
+            <div className="relative overflow-hidden rounded-lg h-full min-h-[400px]">
+              <img
+                src={images[1].src}
+                alt={images[1].alt}
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+          </div>
+
+          <div className="col-span-1 row-span-2">
+            <div className="relative overflow-hidden rounded-lg h-full min-h-[400px]">
+              <img
+                src={images[2].src}
+                alt={images[2].alt}
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+          </div>
+
+          <div className="col-span-1 row-span-2">
+            <div className="relative overflow-hidden rounded-lg h-full min-h-[400px]">
+              <img
+                src={images[3].src}
+                alt={images[3].alt}
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+          </div>
+
+          <div className="col-span-2 md:col-span-1 row-span-1">
+            <div className="relative overflow-hidden rounded-lg h-64 md:h-full md:min-h-[195px]">
+              <img
+                src={images[4].src}
+                alt={images[4].alt}
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>

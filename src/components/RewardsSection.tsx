@@ -15,7 +15,7 @@ const RewardsSection = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl">
           <h2 className="text-6xl md:text-7xl font-light text-white mb-8 tracking-widest animate-fade-in drop-shadow-2xl">
-            PASSPARK REWARDS
+            REWARDS
           </h2>
           <p className="text-2xl text-white/95 mb-10 leading-relaxed animate-slide-up">
             Loyalty program that allows you to earn points on parking reservations. Earn rewards with every visit and unlock exclusive benefits.

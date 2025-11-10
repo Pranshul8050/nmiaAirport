@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Loader2 } from "lucide-react";
@@ -17,11 +17,7 @@ const ParkingAvailability = () => {
   const [loading, setLoading] = useState(true);
   const { toast } = useToast();
 
-  useEffect(() => {
-    fetchParkingAvailability();
-  }, []);
-
-  const fetchParkingAvailability = async () => {
+  const fetchParkingAvailability = useCallback(async () => {
     setLoading(true);
     try {
       const { data, error } = await supabase.functions.invoke('get-parking-availability');
@@ -38,7 +34,11 @@ const ParkingAvailability = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [toast]);
+
+  useEffect(() => {
+    fetchParkingAvailability();
+  }, [fetchParkingAvailability]);
 
   return (
     <div className="bg-muted py-16">
