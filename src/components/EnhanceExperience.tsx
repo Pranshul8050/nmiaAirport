@@ -1,61 +1,76 @@
+import travelerImage from '@/assets/traveler-happy.png';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import travelerImage from "@/assets/traveler-happy.png";
+  AccordionTrigger
+} from '@/components/ui/accordion';
 
 const EnhanceExperience = () => {
   const services = [
     {
       id: 1,
-      title: "Hotels",
-      description: "Book comfortable rooms with flexible cancellation and great rates.",
-      image: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?q=80&w=2080&auto=format&fit=crop",
-      affiliateLink: "#" // Add affiliate link later
+      title: 'Hotels',
+      description: 'Book comfortable rooms with flexible cancellation and great rates.',
+      image:
+        'https://images.unsplash.com/photo-1571896349842-33c89424de2d?q=80&w=2080&auto=format&fit=crop',
+      affiliateLink: '#', // Will be replaced with hotel booking affiliate link
+      isExternal: true
     },
     {
       id: 2,
-      title: "Cabs",
-      description: "Book reliable airport transfers — sedan, SUV, or luxury vehicles.",
-      image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=2070&auto=format&fit=crop",
-      affiliateLink: "#" // Add affiliate link later
+      title: 'Cabs',
+      description: 'Book reliable airport transfers — sedan, SUV, or luxury vehicles.',
+      image:
+        'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=2070&auto=format&fit=crop',
+      affiliateLink: '/travel#ride-sharing', // Links to ride sharing section
+      isExternal: false
     },
     {
       id: 3,
-      title: "Flights",
-      description: "Search and compare flights from trusted carriers.",
-      image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=2070&auto=format&fit=crop",
-      affiliateLink: "#" // Add affiliate link later
+      title: 'Flights',
+      description: 'Search and compare flights from trusted carriers.',
+      image:
+        'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=2070&auto=format&fit=crop',
+      affiliateLink: '#', // Placeholder for flight booking
+      isExternal: true
     },
     {
       id: 4,
-      title: "Packages",
-      description: "Hand-picked vacation packages for every kind of traveler.",
-      image: "https://images.unsplash.com/photo-1505142468610-359e7d316be0?q=80&w=2026&auto=format&fit=crop",
-      affiliateLink: "#" // Add affiliate link later
+      title: 'Packages',
+      description: 'Hand-picked vacation packages for every kind of traveler.',
+      image:
+        'https://images.unsplash.com/photo-1505142468610-359e7d316be0?q=80&w=2026&auto=format&fit=crop',
+      affiliateLink: '#', // Will be replaced with MakeMyTrip affiliate link
+      isExternal: true
     },
     {
       id: 5,
-      title: "Local Events",
-      description: "Discover experiences and events happening near the airport.",
-      image: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=2070&auto=format&fit=crop",
-      affiliateLink: "#" // Add affiliate link later
+      title: 'Local Events',
+      description: 'Discover experiences and events happening near the airport.',
+      image:
+        'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=2070&auto=format&fit=crop',
+      affiliateLink: '/local-events', // Links to dedicated local events page
+      isExternal: false
     },
     {
       id: 6,
-      title: "Parking",
-      description: "Reserve a guaranteed parking spot close to the terminal.",
-      image: "https://images.unsplash.com/photo-1590674899484-d5640e854abe?q=80&w=2070&auto=format&fit=crop",
-      affiliateLink: "#" // Add affiliate link later
-    },
+      title: 'Parking',
+      description: 'Reserve a guaranteed parking spot close to the terminal.',
+      image:
+        'https://images.unsplash.com/photo-1590674899484-d5640e854abe?q=80&w=2070&auto=format&fit=crop',
+      affiliateLink: '/parking', // Links to parking page
+      isExternal: false
+    }
   ];
 
-  const handleCardClick = (affiliateLink: string) => {
-    // This will be used to redirect to affiliate links later
-    if (affiliateLink !== "#") {
-      window.location.href = affiliateLink;
+  const handleCardClick = (affiliateLink: string, isExternal: boolean) => {
+    if (affiliateLink !== '#') {
+      if (isExternal) {
+        window.open(affiliateLink, '_blank');
+      } else {
+        window.location.href = affiliateLink;
+      }
     }
   };
 
@@ -68,7 +83,7 @@ const EnhanceExperience = () => {
             <div
               key={service.id}
               className="group cursor-pointer bg-white shadow-md hover:shadow-2xl transition-all duration-300"
-              onClick={() => handleCardClick(service.affiliateLink)}
+              onClick={() => handleCardClick(service.affiliateLink, service.isExternal)}
             >
               {/* Image Container */}
               <div className="relative h-56 overflow-hidden">
@@ -82,12 +97,8 @@ const EnhanceExperience = () => {
 
               {/* Content */}
               <div className="p-6 text-center">
-                <h3 className="text-2xl font-bold text-slate-800 mb-3">
-                  {service.title}
-                </h3>
-                <p className="text-slate-600 text-sm leading-relaxed">
-                  {service.description}
-                </p>
+                <h3 className="text-2xl font-bold text-slate-800 mb-3">{service.title}</h3>
+                <p className="text-slate-600 text-sm leading-relaxed">{service.description}</p>
               </div>
             </div>
           ))}
@@ -106,11 +117,7 @@ const EnhanceExperience = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start max-w-7xl mx-auto">
           {/* Image */}
           <div className="order-2 lg:order-1">
-            <img
-              src={travelerImage}
-              alt="Happy travelers at airport"
-              className="w-full h-auto"
-            />
+            <img src={travelerImage} alt="Happy travelers at airport" className="w-full h-auto" />
           </div>
 
           {/* Accordion */}
@@ -122,10 +129,26 @@ const EnhanceExperience = () => {
                 </AccordionTrigger>
                 <AccordionContent className="bg-slate-50 px-6 py-6 border-0">
                   <ul className="grid grid-cols-2 gap-x-8 gap-y-3">
-                    <li><a href="#" className="text-[#0077B6] hover:underline text-sm">Private Pick up</a></li>
-                    <li><a href="#" className="text-[#0077B6] hover:underline text-sm">Airport Map</a></li>
-                    <li><a href="#" className="text-[#0077B6] hover:underline text-sm">Parking</a></li>
-                    <li><a href="#" className="text-[#0077B6] hover:underline text-sm">Arrivals & Departures</a></li>
+                    <li>
+                      <a href="#" className="text-[#0077B6] hover:underline text-sm">
+                        Private Pick up
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="text-[#0077B6] hover:underline text-sm">
+                        Airport Map
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="text-[#0077B6] hover:underline text-sm">
+                        Parking
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="text-[#0077B6] hover:underline text-sm">
+                        Arrivals & Departures
+                      </a>
+                    </li>
                   </ul>
                 </AccordionContent>
               </AccordionItem>
@@ -136,10 +159,26 @@ const EnhanceExperience = () => {
                 </AccordionTrigger>
                 <AccordionContent className="bg-slate-50 px-6 py-6 border-0">
                   <ul className="grid grid-cols-2 gap-x-8 gap-y-3">
-                    <li><a href="#" className="text-[#0077B6] hover:underline text-sm">Baggage Claim</a></li>
-                    <li><a href="#" className="text-[#0077B6] hover:underline text-sm">Ground Transportation</a></li>
-                    <li><a href="#" className="text-[#0077B6] hover:underline text-sm">Customs & Immigration</a></li>
-                    <li><a href="#" className="text-[#0077B6] hover:underline text-sm">Airport Hotels</a></li>
+                    <li>
+                      <a href="#" className="text-[#0077B6] hover:underline text-sm">
+                        Baggage Claim
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="text-[#0077B6] hover:underline text-sm">
+                        Ground Transportation
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="text-[#0077B6] hover:underline text-sm">
+                        Customs & Immigration
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="text-[#0077B6] hover:underline text-sm">
+                        Airport Hotels
+                      </a>
+                    </li>
                   </ul>
                 </AccordionContent>
               </AccordionItem>
@@ -150,10 +189,26 @@ const EnhanceExperience = () => {
                 </AccordionTrigger>
                 <AccordionContent className="bg-slate-50 px-6 py-6 border-0">
                   <ul className="grid grid-cols-2 gap-x-8 gap-y-3">
-                    <li><a href="#" className="text-[#0077B6] hover:underline text-sm">Transfer Procedures</a></li>
-                    <li><a href="#" className="text-[#0077B6] hover:underline text-sm">Minimum Connect Time</a></li>
-                    <li><a href="#" className="text-[#0077B6] hover:underline text-sm">Transit Lounges</a></li>
-                    <li><a href="#" className="text-[#0077B6] hover:underline text-sm">Visa Requirements</a></li>
+                    <li>
+                      <a href="#" className="text-[#0077B6] hover:underline text-sm">
+                        Transfer Procedures
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="text-[#0077B6] hover:underline text-sm">
+                        Minimum Connect Time
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="text-[#0077B6] hover:underline text-sm">
+                        Transit Lounges
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="text-[#0077B6] hover:underline text-sm">
+                        Visa Requirements
+                      </a>
+                    </li>
                   </ul>
                 </AccordionContent>
               </AccordionItem>
@@ -164,10 +219,26 @@ const EnhanceExperience = () => {
                 </AccordionTrigger>
                 <AccordionContent className="bg-slate-50 px-6 py-6 border-0">
                   <ul className="grid grid-cols-2 gap-x-8 gap-y-3">
-                    <li><a href="#" className="text-[#0077B6] hover:underline text-sm">Private Pick up</a></li>
-                    <li><a href="#" className="text-[#0077B6] hover:underline text-sm">Airport Map</a></li>
-                    <li><a href="#" className="text-[#0077B6] hover:underline text-sm">Parking</a></li>
-                    <li><a href="#" className="text-[#0077B6] hover:underline text-sm">Arrivals & Departures</a></li>
+                    <li>
+                      <a href="#" className="text-[#0077B6] hover:underline text-sm">
+                        Private Pick up
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="text-[#0077B6] hover:underline text-sm">
+                        Airport Map
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="text-[#0077B6] hover:underline text-sm">
+                        Parking
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="text-[#0077B6] hover:underline text-sm">
+                        Arrivals & Departures
+                      </a>
+                    </li>
                   </ul>
                 </AccordionContent>
               </AccordionItem>

@@ -1,14 +1,12 @@
-import Navbar from "@/components/Navbar";
-import HeroCarousel from "@/components/HeroCarousel";
-import QuickActions from "@/components/QuickActions";
-import ServiceCards from "@/components/ServiceCards";
-import EnhanceExperience from "@/components/EnhanceExperience";
-import NewsSection from "@/components/NewsSection";
-import ShopDine from "@/components/ShopDine";
-import RewardsSection from "@/components/RewardsSection";
-import ParkingAvailability from "@/components/ParkingAvailability";
-import GoodToKnow from "@/components/GoodToKnow";
-import Footer from "@/components/Footer";
+import EnhanceExperience from '@/components/EnhanceExperience';
+import Footer from '@/components/Footer';
+import GoodToKnow from '@/components/GoodToKnow';
+import HeroCarousel from '@/components/HeroCarousel';
+import Navbar from '@/components/Navbar';
+import NewsSection from '@/components/NewsSection';
+import ParkingAvailability from '@/components/ParkingAvailability';
+import QuickActions from '@/components/QuickActions';
+import ShopDine from '@/components/ShopDine';
 
 const Index = () => {
   return (
@@ -17,8 +15,6 @@ const Index = () => {
       <HeroCarousel />
       <QuickActions />
       <ParkingAvailability />
-      <ServiceCards />
-      <RewardsSection />
       <NewsSection />
       <ShopDine />
       <EnhanceExperience />
