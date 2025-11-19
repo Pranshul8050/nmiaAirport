@@ -8,6 +8,7 @@ const NewsSection = () => {
   const [news, setNews] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
+  const [visibleCount, setVisibleCount] = useState(6);
   const [lastUpdated, setLastUpdated] = useState(new Date());
   const { toast } = useToast();
 
@@ -66,49 +67,21 @@ const NewsSection = () => {
   const fetchNews = async (pageNum = 1) => {
     setLoading(true);
     try {
-      const apiKey = import.meta.env.VITE_NEWS_API_KEY;
+      // Call backend API route instead of NewsAPI directly
+      const response = await fetch(`/api/news?page=${pageNum}`);
+      const data = await response.json();
 
-      // Search for NMIA, Navi Mumbai Airport, Mumbai Airport news
-      const queries = [
-        'Navi Mumbai International Airport',
-        'NMIA airport',
-        'Mumbai airport expansion',
-        'Navi Mumbai airport news'
-      ];
-
-      // Try multiple search terms to get best results
-      let allArticles: any[] = [];
-
-      for (const query of queries) {
-        const url = `https://newsapi.org/v2/everything?q=${encodeURIComponent(
-          query
-        )}&language=en&sortBy=publishedAt&pageSize=10&page=${pageNum}&apiKey=${apiKey}`;
-
-        const response = await fetch(url);
-        const data = await response.json();
-
-        if (data.status === 'ok' && data.articles) {
-          allArticles = [...allArticles, ...data.articles];
-        }
+      if (data.error) {
+        throw new Error(data.error);
       }
 
-      // Remove duplicates based on title
-      const uniqueArticles = allArticles.filter(
-        (article, index, self) => index === self.findIndex((a) => a.title === article.title)
-      );
+      if (data.status === 'ok' && data.articles && data.articles.length > 0) {
+        // Add category based on content
+        const categorizedNews = data.articles.map((article: any) => ({
+          ...article,
+          category: getCategoryFromContent(article.title + ' ' + article.description)
+        }));
 
-      // Sort by publishedAt date (most recent first)
-      const sortedArticles = uniqueArticles.sort(
-        (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
-      );
-
-      // Add category based on content
-      const categorizedNews = sortedArticles.map((article) => ({
-        ...article,
-        category: getCategoryFromContent(article.title + ' ' + article.description)
-      }));
-
-      if (categorizedNews.length > 0) {
         setNews((prevNews) =>
           pageNum === 1 ? categorizedNews : [...prevNews, ...categorizedNews]
         );
@@ -231,9 +204,9 @@ const NewsSection = () => {
           </div>
         ) : (
           <>
-            {/* Featured news grid - 6 cards */}
+            {/* Featured news grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-              {news.slice(0, 6).map((item, index) => (
+              {news.slice(0, visibleCount).map((item, index) => (
                 <div
                   key={index}
                   className="group bg-white rounded-xl overflow-hidden border border-slate-100 hover:border-amber-200 hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1"
@@ -311,21 +284,24 @@ const NewsSection = () => {
             </div>
 
             {/* View All News CTA */}
-            <div className="text-center pt-8">
-              <Button
-                size="lg"
-                className="bg-slate-800 hover:bg-amber-600 text-white hover:shadow-xl transition-all px-10 py-6 text-base font-medium rounded-full group"
-                onClick={() => {
-                  const nextPage = page + 1;
-                  setPage(nextPage);
-                  fetchNews(nextPage);
-                }}
-              >
-                <Newspaper className="w-5 h-5 mr-2" />
-                Load More News
-                <ExternalLink className="w-5 h-5 ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-              </Button>
-            </div>
+            {visibleCount < news.length && (
+              <div className="text-center pt-8">
+                <Button
+                  size="lg"
+                  className="bg-slate-800 hover:bg-amber-600 text-white hover:shadow-xl transition-all px-10 py-6 text-base font-medium rounded-full group"
+                  onClick={() => {
+                    setVisibleCount(prev => prev + 3);
+                  }}
+                >
+                  <Newspaper className="w-5 h-5 mr-2" />
+                  Load 3 More News
+                  <ExternalLink className="w-5 h-5 ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                </Button>
+                <p className="text-sm text-slate-400 mt-4">
+                  Showing {visibleCount} of {news.length} articles
+                </p>
+              </div>
+            )}
           </>
         )}
       </div>

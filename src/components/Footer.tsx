@@ -112,7 +112,7 @@ const Footer = () => {
             {/* Brand Column */}
             <div>
               <div className="flex items-center gap-2.5 mb-6">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-orange-400 via-orange-500 to-red-600 flex items-center justify-center shadow-lg shadow-orange-500/20 animate-pulse">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#003366] to-[#0077B6] flex items-center justify-center shadow-lg shadow-blue-500/20 animate-pulse">
                   <Plane className="w-5 h-5 text-white" />
                 </div>
                 <span className="text-[17px] font-semibold text-white">NMIA</span>

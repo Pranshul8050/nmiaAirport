@@ -3,6 +3,7 @@
 ## ✅ Recent Fixes Applied
 
 ### Fixed Vercel Deployment Error
+
 The `EBADPLATFORM` error has been resolved with the following changes:
 
 1. **Removed platform-specific lock files** (`package-lock.json`)
@@ -24,6 +25,7 @@ The `EBADPLATFORM` error has been resolved with the following changes:
 ### Option 2: Force New Deployment
 
 Push any small change to trigger a new deployment:
+
 ```bash
 git commit --allow-empty -m "Force redeploy"
 git push nmia main

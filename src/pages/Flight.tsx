@@ -10,6 +10,8 @@ interface FlightData {
   airline: string;
   origin?: string;
   destination?: string;
+  originCity?: string;
+  destinationCity?: string;
   time: string;
   status: string;
   terminal: string;
@@ -114,6 +116,8 @@ const Flight = () => {
             : 'N/A',
           origin: flight.departure?.airport || flight.departure?.iata || 'Unknown',
           destination: flight.arrival?.airport || flight.arrival?.iata || 'Unknown',
+          originCity: flight.departure?.timezone || flight.departure?.iata || '',
+          destinationCity: flight.arrival?.timezone || flight.arrival?.iata || '',
           flightNumber:
             flight.flight?.iata || flight.flight?.icao || flight.flight?.number || 'N/A',
           airline: flight.airline?.name || flight.airline?.iata || 'Unknown',
@@ -173,8 +177,10 @@ const Flight = () => {
         departures: [
           {
             time: '02:25 PM',
-            destination: 'Delhi',
+            destination: 'Indira Gandhi International Airport',
+            destinationCity: 'New Delhi, India',
             origin: 'Mumbai',
+            originCity: 'Mumbai, Maharashtra',
             flightNumber: '6E 2134',
             airline: 'IndiGo',
             gate: 'A14',
@@ -183,8 +189,10 @@ const Flight = () => {
           },
           {
             time: '02:45 PM',
-            destination: 'Bangalore',
+            destination: 'Kempegowda International Airport',
+            destinationCity: 'Bangalore, Karnataka',
             origin: 'Mumbai',
+            originCity: 'Mumbai, Maharashtra',
             flightNumber: 'AI 619',
             airline: 'Air India',
             gate: 'C17',
@@ -193,8 +201,10 @@ const Flight = () => {
           },
           {
             time: '03:00 PM',
-            destination: 'Dubai',
+            destination: 'Dubai International Airport',
+            destinationCity: 'Dubai, UAE',
             origin: 'Mumbai',
+            originCity: 'Mumbai, Maharashtra',
             flightNumber: 'EK 501',
             airline: 'Emirates',
             gate: 'B37',
@@ -494,8 +504,13 @@ const Flight = () => {
                         {flight.flightNumber}
                       </div>
                       <div className="px-4 py-4 text-sm">{flight.airline || 'N/A'}</div>
-                      <div className="px-4 py-4 col-span-2 font-medium">
-                        {activeTab === 'arrivals' ? flight.origin : flight.destination}
+                      <div className="px-4 py-4 col-span-2">
+                        <div className="font-medium text-slate-800">
+                          {activeTab === 'arrivals' ? flight.origin : flight.destination}
+                        </div>
+                        <div className="text-xs text-slate-500 mt-1">
+                          {activeTab === 'arrivals' ? flight.originCity : flight.destinationCity}
+                        </div>
                       </div>
                       <div className="px-4 py-4 text-sm">{flight.time}</div>
                       <div className="px-4 py-4">
