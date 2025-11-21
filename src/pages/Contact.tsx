@@ -102,21 +102,6 @@ const Contact = () => {
               <Card className="p-6 hover:shadow-lg transition-all">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
-                    <Users className="w-6 h-6 text-[#003366]" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-lg text-slate-800 mb-2">Website Creators</h3>
-                    <p className="text-slate-600 leading-relaxed">
-                      This is a preview/demo website created to showcase NMIA. 
-                      Built with 💛 by <strong>Pranshul</strong> and the development team.
-                    </p>
-                  </div>
-                </div>
-              </Card>
-
-              <Card className="p-6 hover:shadow-lg transition-all">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
                     <Mail className="w-6 h-6 text-[#003366]" />
                   </div>
                   <div>
