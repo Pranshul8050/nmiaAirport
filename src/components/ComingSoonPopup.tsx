@@ -68,72 +68,56 @@ const ComingSoonPopup = () => {
   return (
     <>
       {/* Backdrop */}
-      <div className="fixed inset-0 bg-black/80 backdrop-blur-md z-[9998] animate-in fade-in duration-500" />
+      <div className="fixed inset-0 bg-black/95 backdrop-blur-sm z-[9998] animate-in fade-in duration-300" />
 
       {/* Popup */}
       <div className="fixed inset-0 flex items-center justify-center z-[9999] p-4">
-        <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-black rounded-2xl shadow-2xl max-w-2xl w-full transform animate-in zoom-in-95 slide-in-from-bottom-4 duration-500 overflow-hidden border border-amber-500/30">
+        <div className="bg-black rounded-lg shadow-2xl max-w-xl w-full transform animate-in zoom-in-95 duration-300 overflow-hidden border border-zinc-800">
           {/* Close button */}
           <button
             onClick={handleClose}
-            className="absolute top-4 right-4 text-slate-400 hover:text-white transition-colors z-10 bg-slate-800/80 hover:bg-slate-700 rounded-full p-2 shadow-lg border border-slate-700"
+            className="absolute top-3 right-3 text-zinc-500 hover:text-white transition-colors z-10"
           >
             <X className="w-5 h-5" />
           </button>
 
-          {/* Subtle animated background elements */}
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-10 left-10 w-32 h-32 bg-gradient-to-br from-amber-500/10 to-transparent rounded-full blur-3xl" />
-            <div className="absolute bottom-10 right-10 w-40 h-40 bg-gradient-to-br from-blue-500/10 to-transparent rounded-full blur-3xl" />
-          </div>
-
           {/* Content */}
-          <div className="relative p-10 md:p-12">
-            {/* Icon with subtle animation */}
-            <div className="mb-8 flex justify-center">
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-amber-500/20 to-blue-500/20 rounded-full blur-xl" />
-                <div className="relative bg-gradient-to-r from-amber-500 to-amber-600 text-white w-20 h-20 rounded-full flex items-center justify-center shadow-2xl">
-                  <Sparkles className="w-10 h-10" />
-                </div>
-              </div>
-            </div>
-
+          <div className="relative p-8">
             {/* Title */}
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-3 animate-in slide-in-from-bottom-2 duration-700 text-center">
-              Exciting News!
+            <h2 className="text-2xl font-semibold text-white mb-2 text-center tracking-tight">
+              Coming Soon
             </h2>
 
             {/* Subtitle */}
-            <div className="mb-8 animate-in slide-in-from-bottom-3 duration-700 delay-100 text-center">
-              <p className="text-xl md:text-2xl font-semibold text-white mb-2">
-                NMIA is Coming Soon
+            <div className="mb-6 text-center">
+              <p className="text-lg text-white mb-1">
+                Navi Mumbai International Airport
               </p>
-              <p className="text-base text-slate-300 leading-relaxed">
-                Navi Mumbai International Airport is preparing to take flight
+              <p className="text-sm text-zinc-400">
+                Preview website - Official launch pending
               </p>
             </div>
 
             {/* Description */}
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 mb-8 border border-slate-700/50 animate-in slide-in-from-bottom-4 duration-700 delay-200">
-              <p className="text-slate-300 leading-relaxed mb-4 text-center text-sm">
-                World-class airport experience with cutting-edge features:
+            <div className="bg-zinc-900/50 rounded-md p-5 mb-6 border border-zinc-800">
+              <p className="text-zinc-300 text-sm mb-4 text-center">
+                Advanced infrastructure and services
               </p>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="flex items-center gap-3 text-slate-200 text-sm">
-                  <span className="text-xl">✈️</span>
+              <div className="grid grid-cols-2 gap-3">
+                <div className="flex items-center gap-2 text-zinc-300 text-sm">
+                  <div className="w-1.5 h-1.5 bg-zinc-500 rounded-full"></div>
                   <span>Modern Terminals</span>
                 </div>
-                <div className="flex items-center gap-3 text-slate-200 text-sm">
-                  <span className="text-xl">⭐</span>
+                <div className="flex items-center gap-2 text-zinc-300 text-sm">
+                  <div className="w-1.5 h-1.5 bg-zinc-500 rounded-full"></div>
                   <span>Premium Services</span>
                 </div>
-                <div className="flex items-center gap-3 text-slate-200 text-sm">
-                  <span className="text-xl">🌱</span>
-                  <span>Eco-Friendly</span>
+                <div className="flex items-center gap-2 text-zinc-300 text-sm">
+                  <div className="w-1.5 h-1.5 bg-zinc-500 rounded-full"></div>
+                  <span>Sustainable Design</span>
                 </div>
-                <div className="flex items-center gap-3 text-slate-200 text-sm">
-                  <span className="text-xl">🚀</span>
+                <div className="flex items-center gap-2 text-zinc-300 text-sm">
+                  <div className="w-1.5 h-1.5 bg-zinc-500 rounded-full"></div>
                   <span>Smart Technology</span>
                 </div>
               </div>
@@ -143,17 +127,15 @@ const ComingSoonPopup = () => {
             <div className="flex justify-center">
               <Button
                 onClick={handleClose}
-                size="lg"
-                className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-black font-semibold px-10 py-6 text-base rounded-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 animate-in slide-in-from-bottom-5 duration-700 delay-300"
+                className="bg-white hover:bg-zinc-100 text-black font-medium px-8 py-2.5 text-sm rounded-md transition-all duration-200"
               >
-                Explore Preview Site
-                <Sparkles className="w-5 h-5 ml-2" />
+                Continue to Preview
               </Button>
             </div>
 
             {/* Footer note */}
-            <p className="text-xs text-slate-500 mt-6 animate-in fade-in duration-700 delay-500 text-center">
-              Stay tuned for our official launch announcement
+            <p className="text-xs text-zinc-600 mt-5 text-center">
+              This is a preview demonstration website
             </p>
           </div>
         </div>
