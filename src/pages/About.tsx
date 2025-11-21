@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Card } from "@/components/ui/card";
-import { Building2, Users, Award, MapPin, TrendingUp, Target, ArrowRight, Globe } from "lucide-react";
+import { Building2, Users, Award, MapPin, TrendingUp, Target, ArrowRight, Globe, Phone, Mail, Clock } from "lucide-react";
 
 const About = () => {
   return (
@@ -185,6 +185,81 @@ const About = () => {
               </div>
             </div>
           </Card>
+        </div>
+      </div>
+
+      {/* Official Contact Information */}
+      <div className="container px-6 py-16">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold text-slate-800 mb-10 text-center">Official Contact Information</h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            <Card className="p-6 hover:shadow-lg transition-all">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+                  <Phone className="w-6 h-6 text-[#003366]" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-lg text-slate-800 mb-2">Phone Numbers</h3>
+                  <div className="space-y-2 text-sm text-slate-600">
+                    <p><strong>General Inquiries:</strong> +91 22 1234 5678</p>
+                    <p><strong>Customer Service:</strong> 1800 123 4567 (Toll-Free)</p>
+                    <p><strong>Lost & Found:</strong> +91 22 1234 5679</p>
+                    <p><strong>Parking Services:</strong> +91 22 1234 5680</p>
+                  </div>
+                </div>
+              </div>
+            </Card>
+
+            <Card className="p-6 hover:shadow-lg transition-all">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+                  <Mail className="w-6 h-6 text-[#003366]" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-lg text-slate-800 mb-2">Email Addresses</h3>
+                  <div className="space-y-2 text-sm text-slate-600">
+                    <p><strong>General:</strong> info@nmia.in</p>
+                    <p><strong>Support:</strong> support@nmia.in</p>
+                    <p><strong>Media:</strong> media@nmia.in</p>
+                    <p><strong>Careers:</strong> careers@nmia.in</p>
+                  </div>
+                </div>
+              </div>
+            </Card>
+
+            <Card className="p-6 hover:shadow-lg transition-all">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+                  <Clock className="w-6 h-6 text-[#003366]" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-lg text-slate-800 mb-2">Operating Hours</h3>
+                  <div className="space-y-1 text-slate-600">
+                    <p><strong>Airport:</strong> 24/7</p>
+                    <p><strong>Customer Service:</strong> 24/7</p>
+                    <p><strong>Administration:</strong> Mon-Fri, 9 AM - 6 PM</p>
+                    <p><strong>Lost & Found:</strong> Daily, 6 AM - 10 PM</p>
+                  </div>
+                </div>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-gradient-to-r from-red-50 to-orange-50 border-2 border-red-200">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0">
+                  <Phone className="w-6 h-6 text-red-600" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-lg text-red-800 mb-2">Emergency Contacts</h3>
+                  <div className="space-y-1 text-slate-700">
+                    <p><strong>Airport Security:</strong> +91 22 1234 9999</p>
+                    <p><strong>Medical Emergency:</strong> +91 22 1234 0000</p>
+                    <p><strong>Fire Services:</strong> 101</p>
+                  </div>
+                </div>
+              </div>
+            </Card>
+          </div>
         </div>
       </div>
 

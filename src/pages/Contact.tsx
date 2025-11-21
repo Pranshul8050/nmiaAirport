@@ -4,7 +4,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Phone, Mail, MapPin, Clock, MessageSquare, Send, Headphones } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, MessageSquare, Send, Headphones, Users, Building2 } from "lucide-react";
 
 const Contact = () => {
   return (
@@ -18,13 +18,13 @@ const Contact = () => {
           <div className="max-w-3xl">
             <div className="flex items-center gap-3 mb-4">
               <Headphones className="w-8 h-8 text-white" />
-              <span className="text-sm font-semibold text-white/90 uppercase tracking-wider">Contact Support</span>
+              <span className="text-sm font-semibold text-white/90 uppercase tracking-wider">Website Support</span>
             </div>
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
-              Get in Touch
+              Contact Website Team
             </h1>
             <p className="text-xl text-white/90 leading-relaxed">
-              Have questions? We're here to help. Reach out to our support team anytime.
+              Questions about this preview website? Reach out to our development team.
             </p>
           </div>
         </div>
@@ -32,40 +32,19 @@ const Contact = () => {
 
       {/* Contact Methods */}
       <div className="container px-6 -mt-12 relative z-20">
-        <div className="grid md:grid-cols-3 gap-6">
-          <Card className="p-8 bg-white shadow-2xl hover:shadow-3xl transition-all text-center">
-            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#003366] to-[#0077B6] flex items-center justify-center mx-auto mb-6">
-              <Phone className="w-8 h-8 text-white" />
-            </div>
-            <h3 className="text-xl font-bold text-slate-800 mb-3">Call Us</h3>
-            <p className="text-slate-600 mb-4">Available 24/7 for your support</p>
-            <div className="space-y-2">
-              <p className="text-lg font-bold text-[#0077B6]">+91 22 1234 5678</p>
-              <p className="text-sm text-slate-500">Toll-Free: 1800 123 4567</p>
-            </div>
-          </Card>
-
+        <div className="max-w-2xl mx-auto">
           <Card className="p-8 bg-white shadow-2xl hover:shadow-3xl transition-all text-center">
             <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#003366] to-[#0077B6] flex items-center justify-center mx-auto mb-6">
               <Mail className="w-8 h-8 text-white" />
             </div>
-            <h3 className="text-xl font-bold text-slate-800 mb-3">Email Us</h3>
-            <p className="text-slate-600 mb-4">We'll respond within 24 hours</p>
-            <div className="space-y-2">
-              <p className="text-sm font-bold text-[#0077B6]">info@nmia.in</p>
-              <p className="text-sm text-slate-500">support@nmia.in</p>
-            </div>
-          </Card>
-
-          <Card className="p-8 bg-white shadow-2xl hover:shadow-3xl transition-all text-center">
-            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#003366] to-[#0077B6] flex items-center justify-center mx-auto mb-6">
-              <MessageSquare className="w-8 h-8 text-white" />
-            </div>
-            <h3 className="text-xl font-bold text-slate-800 mb-3">Live Chat</h3>
-            <p className="text-slate-600 mb-4">Instant support via live chat</p>
-            <Button className="bg-gradient-to-r from-[#003366] to-[#0077B6] hover:shadow-lg transition-all">
-              Start Chat Now
-            </Button>
+            <h3 className="text-xl font-bold text-slate-800 mb-3">Email the Website Team</h3>
+            <p className="text-slate-600 mb-4">For inquiries about this preview website</p>
+            <a 
+              href="mailto:nmia.dasani@gmail.com"
+              className="inline-block text-lg font-bold text-[#0077B6] hover:text-[#003366] transition-colors"
+            >
+              nmia.dasani@gmail.com
+            </a>
           </Card>
         </div>
       </div>
@@ -75,7 +54,8 @@ const Contact = () => {
         <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Contact Form */}
           <div>
-            <h2 className="text-3xl font-bold text-slate-800 mb-6">Send a Message</h2>
+            <h2 className="text-3xl font-bold text-slate-800 mb-6">Send Us Feedback</h2>
+            <p className="text-slate-600 mb-6">Have suggestions or found an issue with the website? Let us know!</p>
             <Card className="p-8 bg-white shadow-lg">
               <form className="space-y-6">
                 <div>
@@ -114,22 +94,21 @@ const Contact = () => {
             </Card>
           </div>
 
-          {/* Contact Information */}
+          {/* About This Website */}
           <div>
-            <h2 className="text-3xl font-bold text-slate-800 mb-6">Contact Information</h2>
+            <h2 className="text-3xl font-bold text-slate-800 mb-6">About This Website</h2>
             
             <div className="space-y-6">
               <Card className="p-6 hover:shadow-lg transition-all">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-6 h-6 text-[#003366]" />
+                    <Users className="w-6 h-6 text-[#003366]" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-lg text-slate-800 mb-2">Main Office</h3>
+                    <h3 className="font-bold text-lg text-slate-800 mb-2">Website Creators</h3>
                     <p className="text-slate-600 leading-relaxed">
-                      Navi Mumbai International Airport<br />
-                      CIDCO, Navi Mumbai<br />
-                      Maharashtra 400708, India
+                      This is a preview/demo website created to showcase NMIA. 
+                      Built with 💛 by <strong>Pranshul</strong> and the development team.
                     </p>
                   </div>
                 </div>
@@ -138,15 +117,17 @@ const Contact = () => {
               <Card className="p-6 hover:shadow-lg transition-all">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
-                    <Clock className="w-6 h-6 text-[#003366]" />
+                    <Mail className="w-6 h-6 text-[#003366]" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-lg text-slate-800 mb-2">Office Hours</h3>
-                    <div className="space-y-1 text-slate-600">
-                      <p><strong>Customer Service:</strong> 24/7</p>
-                      <p><strong>Administration:</strong> Mon-Fri, 9 AM - 6 PM</p>
-                      <p><strong>Lost & Found:</strong> Daily, 6 AM - 10 PM</p>
-                    </div>
+                    <h3 className="font-bold text-lg text-slate-800 mb-2">Contact Email</h3>
+                    <p className="text-slate-600 mb-3">For website-related queries, bug reports, or suggestions:</p>
+                    <a 
+                      href="mailto:nmia.dasani@gmail.com"
+                      className="text-[#0077B6] font-semibold hover:text-[#003366] transition-colors"
+                    >
+                      nmia.dasani@gmail.com
+                    </a>
                   </div>
                 </div>
               </Card>
@@ -154,28 +135,25 @@ const Contact = () => {
               <Card className="p-6 hover:shadow-lg transition-all">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-6 h-6 text-[#003366]" />
+                    <Building2 className="w-6 h-6 text-[#003366]" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-lg text-slate-800 mb-2">Department Contacts</h3>
-                    <div className="space-y-2 text-sm text-slate-600">
-                      <p><strong>General Inquiries:</strong> +91 22 1234 5678</p>
-                      <p><strong>Lost & Found:</strong> +91 22 1234 5679</p>
-                      <p><strong>Parking Services:</strong> +91 22 1234 5680</p>
-                      <p><strong>Special Assistance:</strong> +91 22 1234 5681</p>
-                      <p><strong>Media Relations:</strong> +91 22 1234 5682</p>
-                    </div>
+                    <h3 className="font-bold text-lg text-slate-800 mb-2">Purpose</h3>
+                    <p className="text-slate-600 leading-relaxed">
+                      This website is a preview demonstration of what the official NMIA website could look like. 
+                      It's not affiliated with the official Navi Mumbai International Airport authority.
+                    </p>
                   </div>
                 </div>
               </Card>
 
               <Card className="p-6 bg-gradient-to-r from-[#003366] to-[#0077B6] text-white">
-                <h3 className="font-bold text-lg mb-3">Emergency Contacts</h3>
-                <div className="space-y-2">
-                  <p><strong>Airport Security:</strong> +91 22 1234 9999</p>
-                  <p><strong>Medical Emergency:</strong> +91 22 1234 0000</p>
-                  <p><strong>Fire Department:</strong> 101</p>
-                </div>
+                <h3 className="font-bold text-lg mb-3">⚠️ Important Note</h3>
+                <p className="leading-relaxed">
+                  This is an unofficial preview website. For official NMIA information, 
+                  please refer to the official airport authority channels. Visit our <strong>About</strong> page 
+                  for official contact details.
+                </p>
               </Card>
             </div>
           </div>
@@ -186,8 +164,8 @@ const Contact = () => {
       <div className="bg-slate-50 py-16">
         <div className="container px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold text-slate-800 mb-4">Connect With Us</h2>
-            <p className="text-slate-600 mb-8">Follow us on social media for the latest updates and news</p>
+            <h2 className="text-3xl font-bold text-slate-800 mb-4">Follow Development</h2>
+            <p className="text-slate-600 mb-8">Connect with the development team and stay updated</p>
             
             <div className="flex justify-center gap-4">
               <Button variant="outline" size="lg" className="border-[#0077B6] text-[#0077B6] hover:bg-[#0077B6] hover:text-white">
@@ -204,27 +182,6 @@ const Contact = () => {
               </Button>
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* Map Section */}
-      <div className="container px-6 py-16">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-slate-800 mb-8 text-center">Find Us on Map</h2>
-          <Card className="overflow-hidden">
-            <div className="h-[500px] w-full">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30186.12873339489!2d73.0583!3d19.0896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c3d700000001%3A0x5c54a23e66f1b8be!2sNavi%20Mumbai%20International%20Airport!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Navi Mumbai International Airport Location"
-              ></iframe>
-            </div>
-          </Card>
         </div>
       </div>
 
