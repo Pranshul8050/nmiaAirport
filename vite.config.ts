@@ -43,7 +43,7 @@ function apiPlugin(env: Record<string, string>) {
 
               console.log(`[API NEWS] Fetching: ${query}`);
               const response = await fetch(newsUrl);
-              const data = await response.json();
+              const data = await response.json() as any;
 
               if (data.status === 'ok' && data.articles) {
                 console.log(`[API NEWS] Found ${data.articles.length} articles for: ${query}`);
@@ -55,7 +55,16 @@ function apiPlugin(env: Record<string, string>) {
             
             console.log(`[API NEWS] Total articles before dedup: ${allArticles.length}`);
 
-            const uniqueArticles = allArticles.filter(
+            // Filter for NMIA-specific news only
+            const nmiaKeywords = ['nmia', 'navi mumbai airport', 'navi mumbai international airport'];
+            const nmiaArticles = allArticles.filter((article: any) => {
+              const searchText = (article.title + ' ' + article.description + ' ' + (article.content || '')).toLowerCase();
+              return nmiaKeywords.some((keyword: string) => searchText.includes(keyword));
+            });
+
+            console.log(`[API NEWS] NMIA-specific articles: ${nmiaArticles.length}`);
+
+            const uniqueArticles = nmiaArticles.filter(
               (article: any, index: number, self: any[]) => 
                 index === self.findIndex((a: any) => a.title === article.title)
             );

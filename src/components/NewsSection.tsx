@@ -76,8 +76,15 @@ const NewsSection = () => {
       }
 
       if (data.status === 'ok' && data.articles && data.articles.length > 0) {
+        // Filter for NMIA-specific news only
+        const nmiaKeywords = ['nmia', 'navi mumbai airport', 'navi mumbai international airport'];
+        const filteredArticles = data.articles.filter((article: any) => {
+          const searchText = (article.title + ' ' + article.description + ' ' + (article.content || '')).toLowerCase();
+          return nmiaKeywords.some(keyword => searchText.includes(keyword));
+        });
+
         // Add category based on content
-        const categorizedNews = data.articles.map((article: any) => ({
+        const categorizedNews = filteredArticles.map((article: any) => ({
           ...article,
           category: getCategoryFromContent(article.title + ' ' + article.description)
         }));

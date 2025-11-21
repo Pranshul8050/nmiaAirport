@@ -3,6 +3,7 @@ import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import ComingSoonPopup from './components/ComingSoonPopup';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import CustomerService from './pages/CustomerService';
@@ -21,6 +22,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <ComingSoonPopup />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />

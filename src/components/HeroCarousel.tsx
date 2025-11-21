@@ -8,7 +8,7 @@ import heroMumbai3 from "@/assets/hero-mumbai-3.png";
 const slides = [
   {
     image: heroAirport1,
-    title: "Welcome to Mumbai International Airport",
+    title: "Welcome to Navi Mumbai International Airport",
     subtitle: "Connecting travellers to Mumbai with modern facilities and friendly service.",
     cta: "Explore services",
   },
